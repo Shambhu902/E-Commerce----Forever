@@ -3,8 +3,8 @@ import Title from "../components/Title";
 import CartTotal from "../components/CartTotal";
 import { assets } from "../assets/assets";
 import { ShopContext } from "../contexts/ShopContext";
-import axios from "axios";
 import { toast } from "react-toastify";
+import axios from "axios";
 
 const PlaceOrder = () => {
   const [method, setMethod] = useState("cod");

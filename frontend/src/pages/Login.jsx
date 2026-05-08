@@ -22,6 +22,7 @@ const Login = () => {
         if (response.data.success) {
           setToken(response.data.token);
           localStorage.setItem("token", response.data.token);
+          navigate("/");
         } else {
           toast.error(response.data.message);
         }
@@ -32,7 +33,7 @@ const Login = () => {
         });
         if (response.data.success) {
           setToken(response.data.token);
-          localStorage.setItem("token", token);
+          localStorage.setItem("token", response.data.token);
           navigate("/");
         } else {
           toast.error(response.data.message);
@@ -48,7 +49,7 @@ const Login = () => {
     if (token) {
       navigate("/");
     }
-  }, []);
+  }, [token, navigate]);
 
   return (
     <form
@@ -62,7 +63,7 @@ const Login = () => {
       {currentState === "Sign Up" && (
         <input
           className="w-full px-3 py-2 border border-gray-800"
-          type=" requiredxt"
+          type="text"
           placeholder="Name"
           onChange={(e) => setName(e.target.value)}
           value={name}
