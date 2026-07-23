@@ -11,6 +11,7 @@ const createToken = (id) => {
 const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
+    // console.log("Login request received with email:", req.body);
 
     const user = await userModel.findOne({ email });
 
@@ -92,6 +93,7 @@ const registerUser = async (req, res) => {
 const adminLogin = async (req, res) => {
   try {
     const { email, password } = req.body;
+
     if (
       email === process.env.ADMIN_EMAIL &&
       password === process.env.ADMIN_PASSWORD
@@ -114,4 +116,4 @@ const adminLogin = async (req, res) => {
   }
 };
 
-export { loginUser, registerUser, adminLogin };
+export { loginUser, registerUser, adminLogin};
